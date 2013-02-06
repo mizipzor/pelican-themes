@@ -47,6 +47,12 @@
 
         <aside id="sidebar">
                 <div class="widget">
+			<img class="photo" src="{{ AUTHOR_PHOTO }}" />
+			<h2>About</h2>
+			<p>{{ AUTHOR_ABOUT }}</p>
+                </div>
+		{#
+                <div class="widget">
                         <h2>Categories</h2>
                         <ul>
                         {% for cat, null in categories %}
@@ -54,6 +60,7 @@
                         {% endfor %}
                         </ul>
                 </div>
+		#}
         {% if LINKS %}
                 <div class="widget blogroll">
                         <h2>Blogroll</h2>
@@ -66,12 +73,14 @@
         {% endif %}
         {% if SOCIAL %}
                 <div class="widget social">
-                        <h2>Social</h2>
+                        <h2>Elsewhere</h2>
                         <ul>
+			<!--
                             <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">atom feed</a></li>
                             {% if FEED_RSS %}
                             <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">rss feed</a></li>
                             {% endif %}
+			-->
 
                         {% for name, link in SOCIAL %}
                             <li><a href="{{ link }}">{{ name }}</a></li>
@@ -81,6 +90,7 @@
         {% endif %}
         </aside><!-- /#sidebar -->
 
+	{% if FOOTER %}
         <footer id="footer" class="body">
                 <address id="about" class="vcard body">
                 Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
@@ -88,6 +98,7 @@
 
                 <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
         </footer><!-- /#footer -->
+	{% endif %}
 
 {% include 'analytics.html' %}
 </body>
